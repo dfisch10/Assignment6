@@ -1,5 +1,6 @@
 ﻿using Assignment_6.interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Assignment_6.activities
 {
@@ -12,6 +13,7 @@ namespace Assignment_6.activities
             this.sequence = sequence;
         }
 
+        [ExcludeFromCodeCoverage]
         public void Execute()
         {
             Console.WriteLine("Uploading video to the cloud storage repository.....");

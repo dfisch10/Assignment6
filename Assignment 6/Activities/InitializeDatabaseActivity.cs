@@ -1,5 +1,6 @@
 ﻿using Assignment_6.interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Assignment_6.activities
 {
@@ -11,6 +12,8 @@ namespace Assignment_6.activities
         {
             this.sequence = sequence;
         }
+
+        [ExcludeFromCodeCoverage]
         public void Execute()
         {
             Console.WriteLine("Video status has changed to PROCESSING in the database.....");

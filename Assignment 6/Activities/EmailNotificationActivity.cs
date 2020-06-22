@@ -1,5 +1,6 @@
 ﻿using Assignment_6.interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 
 namespace Assignment_6.activities
@@ -12,6 +13,8 @@ namespace Assignment_6.activities
         {
             this.sequence = sequence;
         }
+
+        [ExcludeFromCodeCoverage]
         public void Execute()
         {
             Console.WriteLine("Sending email to confirm processing of video.....");
