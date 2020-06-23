@@ -4,6 +4,7 @@ using Assignment_6.workflowengine;
 using Assignment_6.interfaces;
 using Assignment_6.activities;
 using System.Threading;
+using System.Linq;
 
 namespace Assignment_6.workflowengine
 {
@@ -16,19 +17,21 @@ namespace Assignment_6.workflowengine
         /// </summary>
         /// <param name="workFlow">The workflow containing a list of activities, along with theire specified sequences, to be ran by the workflowengine</param>
         public void Run(IWorkFlow workFlow)
-        {       
-            foreach (var activity in workFlow.ActivitiesList())
+        {
+            if(workFlow is null)
             {
-                int count = 1;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You have tried to register a null workflow, please enter an activity for this instance, and try again.");
+                Console.ResetColor();
+                return;
+            }
 
-                while(activity.sequence >= count)
-                {
-                    if (activity.sequence == count)
-                    {
-                        activity.Execute();
-                    }
-                    count++;
-                }              
+            var orderedList = workFlow.Activities.OrderBy(m => m.Sequence);
+ 
+            for (int index = 0; index < orderedList?.Count(); index++)
+            {
+                var activity = orderedList?.ElementAt(index);
+                activity?.Execute();
             }
         }
         #endregion

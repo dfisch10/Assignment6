@@ -14,12 +14,11 @@ namespace Assignment_6
         {
             var workFlowEngine = new WorkFlowEngine();
 
-            var workFlow = new WorkFlow();
-
-            workFlow.RegisterActivity(new VideoUploadActivity(1));
-            workFlow.RegisterActivity(new EmailNotificationActivity(3));
-            workFlow.RegisterActivity(new ThirdPartyNotificationActivity(2));         
-            workFlow.RegisterActivity(new InitializeDatabaseActivity(4));
+            var workFlow = new WorkFlow()
+                .RegisterActivity(new VideoUploadActivity(1))
+                .RegisterActivity(new EmailNotificationActivity(3))
+                .RegisterActivity(new ThirdPartyNotificationActivity(2))
+                .RegisterActivity(new InitializeDatabaseActivity(4)); 
 
             workFlowEngine.Run(workFlow);        
         }
