@@ -1,4 +1,5 @@
 ﻿using Assignment_6.interfaces;
+using Assignment_6.Utilities;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
@@ -11,7 +12,7 @@ namespace Assignment_6.activities
         /// <summary>
         /// The getter and setter for sequence, which allows us to dictate the sequence order that activities should occur in.
         /// </summary>
-        public int sequence { get; set; }
+        public int Sequence { get; set; }
         #endregion
 
         #region Constructor
@@ -22,7 +23,7 @@ namespace Assignment_6.activities
         /// <param name="sequence">The sequence that the activity should be carried out in of type int.</param>
         public EmailNotificationActivity(int sequence)
         {
-            this.sequence = sequence;
+            this.Sequence = sequence;
         }
         #endregion
 
@@ -36,6 +37,7 @@ namespace Assignment_6.activities
             Console.WriteLine("Sending email to confirm processing of video.....");
         }
 
+        [ExcludeFromCodeCoverage]
         /// <summary>
         /// Compares two objects, of type IActivity's, sequence number to eachother in order to allow for proper sorting
         /// </summary>
@@ -43,16 +45,12 @@ namespace Assignment_6.activities
         /// <returns>Returns the proper order for sorting purposes.</returns>
         public int CompareTo(object obj)
         {
-            if (obj == null) return 1;
-
-            IActivity otherActivity = obj as IActivity;
-            if (otherActivity != null)
-                return this.sequence.CompareTo(otherActivity.sequence);
-            else
+            if(obj is null)
             {
-                throw new ArgumentException("Object is not an Activity");
+                ActivityUtility.ErrorMessage();
             }
-        }
+            return ActivityUtility.Compare(this, (IActivity) obj);
+        } 
         #endregion
     }
 }
