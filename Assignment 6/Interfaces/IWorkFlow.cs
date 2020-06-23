@@ -6,6 +6,9 @@ namespace Assignment_6.interfaces
 {
     public interface IWorkFlow
     {
+        /// <summary>
+        /// Getter and Setter property for the Activities list of type IActivity which keeps track of all the activities that are registered
+        /// </summary>
         public List<IActivity> Activities { get; set; }
 
         /// <summary>
