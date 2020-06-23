@@ -26,6 +26,10 @@ namespace Assignment_6.workflow
         {
         }
 
+        /// <summary>
+        /// The Constructor for class WorkFlow, which takes in a specified list in order to track the count of the list, 
+        /// the ability to add to the list, as well as holding various activity information within the list.
+        /// </summary>
         public WorkFlow(List<IActivity> registeredActivities)
         {
             if(registeredActivities is null)
