@@ -5,7 +5,7 @@
         /// <summary>
         /// The getter and setter for sequence, which allows us to dictate the sequence order that activities should occur in.
         /// </summary>
-        public int sequence { get; set; }
+        public int Sequence { get; set; }
 
         /// <summary>
         /// Method to "execute" the activity logic.

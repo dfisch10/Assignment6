@@ -6,6 +6,8 @@ namespace Assignment_6.interfaces
 {
     public interface IWorkFlow
     {
+        public List<IActivity> Activities { get; set; }
+
         /// <summary>
         /// Adds the activity specified in the method parameter of type IActivity to the "registeredActivities" list, 
         /// and then sorts the list after adding to ensure the activity occurs in proper sequence.
@@ -15,10 +17,10 @@ namespace Assignment_6.interfaces
         {
         }
 
-        /// <summary>
+       /* /// <summary>
         /// Method using the IEnumerable in order to be able to list out the various activities stored in a list via foreach statement.
         /// </summary>
         /// <returns>Returns the information for each activity contained in the list using a foreach statement.</returns>
-        IEnumerable<IActivity> ActivitiesList();
+        IEnumerable<IActivity> ActivitiesList();*/
     }
 }
